@@ -9,7 +9,9 @@
     <h2>Пости</h2>
     <ul>
         {% for post in post_list%}
-        <li> {{post.title}} - {{post.publish_date}} - </li>
+        <li> {{post.title}} - 
+            <a href="{% url 'post_info' post.id %}">Детальніше</a>
+        </li>
 
         {% endfor %}
     </ul>
