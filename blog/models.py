@@ -6,8 +6,15 @@ import datetime
 class Author(models.Model):
     name = models.CharField(max_length=256)
     bio = models.TextField()
+
     def __str__(self):
         return self.name
+    
+    class Meta:
+        verbose_name = "Автор"
+        verbose_name_plural = "Автора"
+        ordering = ["name"]
+
     
     
 class Post(models.Model):
@@ -23,6 +30,11 @@ class Post(models.Model):
     
     def __str__(self):
         return self.title
+    
+    class Meta:
+        verbose_name = "Пост"
+        verbose_name_plural = "Пости"
+        ordering = ["-publish_date"]
 
 
 

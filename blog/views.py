@@ -12,14 +12,27 @@ def post_list(request):
         context=context,
     )
 
-def post_infornation(request, post_id):
+def post_info(request, post_id):
     post_infa = Post.objects.get(id=post_id)
     context = {
         "post_infa": post_infa,
     }
     return render(
         request,
-        "MyBlog/post_info.html",
+        "Myblog/post_info.html",
+        context=context,
+
+    )
+
+def author_post(request, author_name):
+    author_to_post = Post.objects.filter(author=author_name)
+    context = {
+        "author": author_name,
+        "posts": author_to_post,
+    }
+    return render(
+        request,
+        "Myblog/author_posts.html",
         context=context,
 
     )
