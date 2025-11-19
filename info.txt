@@ -72,3 +72,6 @@ Move-Item -Path ".\models.py" -Destination ".\user_management\models.py"
 
 # 20. Вийти з віртуального середовища
 deactivate
+
+
+cd Blog_project

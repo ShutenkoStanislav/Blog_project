@@ -6,17 +6,18 @@
     <title>Усі пости автора</title>
 </head>
 <body>
-    {% if author_to_post %}
+    {% if posts %}
         <ul>
-            {% for post in author_to_post%}
+            {% for post in posts %}
             <li>
                 <h2>{{ post.title }}</h2>
-                <p>{{ post.content}}</p>
-                <p>{{ post.publish_date}}</p>
+                <p>{{ post.content }}</p>
+                <p>{{ post.publish_date }}</p>
             </li>
             {% endfor %}
         </ul>
-    {% endelse %}
-    
+    {% else %}
+        <p>У цього автора поки немає постів.</p>
+    {% endif %}
 </body>
 </html>

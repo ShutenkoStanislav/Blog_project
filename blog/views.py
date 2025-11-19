@@ -25,7 +25,7 @@ def post_info(request, post_id):
     )
 
 def author_post(request, author_name):
-    author_to_post = Post.objects.filter(author=author_name)
+    author_to_post = Post.objects.filter(author__name=author_name)
     context = {
         "author": author_name,
         "posts": author_to_post,
@@ -34,7 +34,6 @@ def author_post(request, author_name):
         request,
         "Myblog/author_posts.html",
         context=context,
-
     )
 
 
