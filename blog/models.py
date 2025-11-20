@@ -37,6 +37,21 @@ class Post(models.Model):
         ordering = ["-publish_date"]
 
 
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    author_name = models.CharField(max_length=256)
+    text = models.TextField()
+    created_date = models.DateTimeField()
+    def __str__(self):
+        return f"{self.author_name} - {self.post}"
+    
+    class Meta:
+        verbose_name = "Коментар"
+        verbose_name_plural = "Коментарі"
+        ordering = ["-created_date"]
+
+
+
 
 
 
