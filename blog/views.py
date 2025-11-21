@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from blog.models import Post, Comment
+from blog.models import Post, Comment, Author
 
 def post_list(request):
     posts = Post.objects.all()
@@ -24,6 +24,16 @@ def post_info(request, post_id):
         "Myblog/post_info.html",
         context=context,
     )
+def author_list(request):
+    authors = Author.objects.all()
+    context = {
+        "author_list" : authors,
+    }
+    return render(
+        request,
+        "Myblog/author_list.html",
+        context=context,
+    )
 
 def author_post(request, author_name):
     author_to_post = Post.objects.filter(author__name=author_name)
@@ -36,7 +46,8 @@ def author_post(request, author_name):
         "Myblog/author_posts.html",
         context=context,
     )
-
+def home(request):
+    return render(request, "Myblog/home.html")
 
 
 
