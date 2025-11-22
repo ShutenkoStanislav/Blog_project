@@ -9,20 +9,16 @@
     <title>Список постів</title>
 </head>
 <body>
-    
-    <div class="post_list_page">
-    <div class="post_list_container">
-    <h2 class="post_list_title">Пости</h2>
-    <ul>
-        {% for post in post_list%}
-        <li> {{post.title}} - 
-            <a href="{% url 'post_info' post.id %}", class="post_list_button">Детальніше</a>
-        </li>
-
-        {% endfor %}
-    </ul>
+    <div>
+        <h2 class="post_list_title">Пости</h2>
+        <ul class="post_list_container">
+            {% for post in post_list %}
+            <li class="post_item">
+                {{ post.title }}
+                <a href="{% url 'post_info' post.id %}" class="post_list_button">Детальніше</a>
+            </li>
+            {% endfor %}
+        </ul>
     </div>
-    </div>
-    
 </body>
 </html>

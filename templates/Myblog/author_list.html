@@ -9,15 +9,17 @@
     <title>Автори</title>
 </head>
 <body>
-    <h2>Автори</h2>
-    <ul>
-        {%for author in author_list%}
-        <li>
-            {{author.name}} -
-            <a href="{% url 'author_name' author.name %}">Детальніше</a>
-        </li>
-        {% endfor %}
-    </ul>
+    <div class="post_list_page">
+        <h2 class="post_list_title">Автори</h2>
+            <ul class="post_list_container">
+                {%for author in author_list%}
+            <li class="post_item">
+                {{author.name}} 
+                <a href="{% url 'author_to_post' author.name %}" class="post_list_button">Детальніше</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
     
 </body>
 </html>

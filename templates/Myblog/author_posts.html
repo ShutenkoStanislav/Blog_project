@@ -4,21 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
     <title>Усі пости автора</title>
 </head>
 <body>
+
     {% if posts %}
-        <ul>
+    <h1 class="author_name">Пости автора: {{author}}</h1>
+        <ul class="author_container">
             {% for post in posts %}
-            <li>
-                <h2>{{ post.title }}</h2>
-                <p>{{ post.content }}</p>
-                <p>{{ post.publish_date }}</p>
+            <li class="author_item">
+                <h2 class="post_fond">Пост: {{ post.title }}</h2>
+                <h2 class="post_text">Зміст: {{ post.content }}</h2>
+                <h3 class="post_date">Написано: {{ post.publish_date }}</h3>
             </li>
             {% endfor %}
         </ul>
     {% else %}
-        <p>У цього автора поки немає постів.</p>
+        <h1>У цього автора поки немає постів.</h1>
     {% endif %}
 </body>
 </html>

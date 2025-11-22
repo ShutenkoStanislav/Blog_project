@@ -17,8 +17,8 @@
     {% if comment_infa %}
 
         {%for comment in comment_infa%}
-            <h2>Автор: {{comment.author_name}}</h2>
-            <p>Пост: {{comment.post}}</p>
+            <h2>Коментатор: {{comment.author_name}}</h2>
+            <p>До поста: {{comment.post}}</p>
             <p>Коментар: {{comment.text}}</p>
             <h3>Написано: {{comment.created_date}}</h3>
 
