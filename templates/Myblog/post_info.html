@@ -9,18 +9,29 @@
     <title>Детальна інформація про пости</title>
 </head>
 <body>
-    <h2> Автор: {{post_infa.author}}</h2>
-    <h2>Написано: {{post_infa.publish_date}}</h2>
-    <p>{{post_infa.title}}</p>
-    <p>{{post_infa.content}}</p>
-    <h2>Коментарі:</h2>
+    <h2 class="author_name"> Автор: {{post_infa.author}}</h2>
+    <ul class="author_container">
+        <li class="author_item">
+            <h2 class="post_date">Написано: {{post_infa.publish_date}}</h2>
+            <p class="post_fond">{{post_infa.title}}</p>
+            <p class="post_text">{{post_infa.content}}</p>
+        </li>
+    </ul>
+
+    <h2 class="author_name">Коментарі</h2>
     {% if comment_infa %}
 
         {%for comment in comment_infa%}
-            <h2>Коментатор: {{comment.author_name}}</h2>
-            <p>До поста: {{comment.post}}</p>
-            <p>Коментар: {{comment.text}}</p>
-            <h3>Написано: {{comment.created_date}}</h3>
+
+        <ul class="author_container">
+            <li class="author_item">
+        
+                <h1>Коментатор: {{comment.author_name}}</h1>
+                <p class="post_date">До поста: {{comment.post}}</p>
+                <p class="post_text">Коментар: {{comment.text}}</p>
+                <h3 class="post_date">Написано: {{comment.created_date}}</h3>
+            </li>
+        </ul>
 
         {%endfor%}
     {%else%}
